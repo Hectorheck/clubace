@@ -1,0 +1,37 @@
+- Encargado de practicas (Nuevo perfil), marca clubes como centro de practica.
+- Nueva tabla para especificar si un club es centro de practica o no.
+- Centro de practica, caracteristicas:
+	- Cupos totales para practica.
+	- Coaches por deportes.
+- El encargado de practica selecciona club, servicios para practica, cupos.
+
+- El admin del club aceptara la 'solicitud' de club para practica, dispondrá recintos y horarios para practicas.
+
+
+- Tutor de practica, es ingresado por encargado de practicas, puede ser de mas de un club.
+- Evalaciones del practicante (1-5), datos finales.
+
+
+- Tipos de evaluaciones y cantidad de sesiones por deporte.
+
+
+- Nuevo perfil para aceclub, 'practicante' (futuro entrenador), validado por admin de centro de practica en aceclub.
+- El practicante puede solicitar clases a cualquier club seleccionado como centro de practica.
+
+
+
+-------- GRAFICOS Y REPORTES --------
+
+21-07-2021
+
+GRAFICOS
+
+- Uso porcentual de cada servicio en relacion a la lista total, ejm, 3 servicios, del uso el primero representa un 60% del total.
+- Dinero recaudado por concepto de arriendo en el periodo (MES).
+- Cantidad de arriendos/reservas mensuales, de los ultimos 12 meses, por ejem.
+- Uso porcentual de cada recinto por servicio, en relacion al total de recintos.
+
+29-07-2021
+
+- Cambios varios al sistema, para que admins puedan tener muchos clubes asociados.
+- 

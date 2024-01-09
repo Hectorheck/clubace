@@ -1,0 +1,36 @@
+@media (min-width: 576px) { 
+
+	.info-cuadro {
+		width: 90%;
+	}
+}
+
+
+@media (min-width: 768px) {
+
+	.info-cuadro {
+		width: 70%;
+	}
+	.mt-a {
+		margin-top: auto !important;
+	}
+
+}
+
+
+@media (min-width: 992px) {
+
+	.info-cuadro {
+		width: 85%;
+	}
+
+}
+
+
+@media (min-width: 1200px) { 
+
+	.info-cuadro {
+		width: 90%;
+	}
+
+}

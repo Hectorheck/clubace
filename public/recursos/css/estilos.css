@@ -1,0 +1,442 @@
+/****  
+VERDE #00963F
+GRIS #5E5E5E 
+****/
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #f5f5f5;
+	color: #5E5E5E;
+}
+a, a:hover, a:focus {
+	text-decoration: none;
+	color: #5E5E5E;
+}
+.form-control:focus {
+	outline: none;
+	box-shadow: none;
+	border-color: #00963F;
+} 
+.fz14 {
+	font-size: 14px;
+}
+.fz20 {
+	font-size: 20px;
+}
+.mt-contenido {
+	margin-top: 200px;
+}
+.pd-cuadro {
+	padding: 15px;
+}
+.pd-cuadro2 {
+	padding: 30px;
+}
+.box-cuadro {
+	box-shadow: 0 4px 16px #455b630d;
+}
+.plr-0 {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.mb-0 {
+	margin-bottom: 0;
+}
+.mt-25 {
+	margin-top: 25px;
+}
+.mb-25 {
+	margin-bottom: 25px;
+}
+.mb-50 {
+	margin-bottom: 50px;
+}
+.pt-25 {
+	padding-top: 25px;
+}
+.w-100 {
+	width: 100%;
+}
+.bg-azul {
+	background-color: #0C284F !important;
+}
+.bg-anaranjado {
+	background-color: #D76F2B !important;
+}
+.btn-success {
+	padding: 10px;
+	width: 100%;
+	background: #00963F;
+}
+.btn-success2, .btn-success2:hover {
+	padding: 10px;
+	width: 100%;
+	color: #00963F;
+	
+	background: white;
+}
+.btn-primary {
+	padding: 10px;
+	width: 100%;
+	border: none;
+}
+.btn-secondary {
+	padding: 10px;
+	width: 100%;
+	color: #5E5E5E;
+	background: white;
+	border: solid 1px #5E5E5E;
+}
+.btn-secondary2 {
+	padding: 10px;
+	width: 100%;
+	color: white;
+	background: #5E5E5E;
+	border: none;
+}
+.modal.show .modal-dialog {
+	padding: 20px;
+}
+.overflow-hidden {
+	overflow: hidden;
+}
+.bg-transparente {
+	background: transparent;
+}
+.mt-auto {
+	padding-top: 200px !important;
+}
+.pt-0 {
+	padding-top: 0 !important;
+}
+
+/** HEADER **/
+header {
+	height: 155px;
+	background-color: #00963F;
+	border-radius: 0 0 30px 30px;
+	color: white;
+	padding: 60px 15px 0 15px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	top: 0;
+}
+header.bg-club {
+	padding: 0;
+	background-size:cover;
+	background-position: center center; 
+}
+header.bg-club .degradado {
+	background: rgb(0,0,0);
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+	padding: 60px 15px 0 15px;
+	height: 155px;
+	border-radius: 0 0 30px 30px;
+}
+header.bg-club.bg-tenis {
+	background-image: url(../img/tenis.jpg);
+}
+header h1 {
+	font-size: 30px;
+	font-weight: normal;
+}
+.iconos-header {
+	margin-bottom: 10px;
+}
+.iconos-header .iconos {
+	width: 25px;
+}
+.notificacion {
+	color: #00963F;
+	background-color: white;
+	border-radius: 20px;
+	padding: 3px 7px;
+	font-size: 14px;
+}
+.icono-menu {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+/** CONTENIDO **/
+h2 {
+	font-size: 20px;
+	font-weight: normal;
+	color: #00963F;
+	margin: 0 0 20px 0;
+}
+h4 {
+	font-size: 20px;
+	font-weight: normal;
+	color: #5E5E5E;
+	margin: 0 0 20px 0;
+}
+.bloque-cuadro {
+	background-color: white;
+	border-radius: 15px;
+	box-shadow: 0 4px 16px #455b630d;
+	margin-bottom: 25px;
+	position: relative;
+}
+.bloque-cuadro .degradado {
+	background: rgb(0,0,0);
+	background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+	height: 140px;
+	border-radius: 15px;
+	padding: 15px;
+	color: white;
+	padding-top: 100px;
+}
+.bloque-cuadro.logo-cuadro {
+	width: 120px;
+    float: right;
+    height: 120px;
+    margin-bottom: 0;
+    text-align: center;
+}
+.bloque-cuadro.logo-cuadro img {
+	width: 80px;
+	margin: auto;
+}
+.img-bg-cuadro {
+	background-size:cover;
+	background-position: center center; 
+	height: 140px;
+	width: 100%;
+}
+.img-golf {
+	background-image: url(../img/golf.jpg);
+}
+.img-tenis {
+	background-image: url(../img/tenis.jpg);
+}
+.img-futbol {
+	background-image: url(../img/futbol.jpg);
+}
+.img-basketball {
+	background-image: url(../img/basketball.jpg);
+}
+.info-cuadro {
+	width: 75%;
+}
+.info-cuadro img {
+	width: 25px;
+	margin-bottom: 15px;
+}
+.info-cuadro h3 {
+	font-size: 20px;
+}
+.info-cuadro p {
+	font-size: 14px;
+}
+.bloque-header {
+	padding-top: 150px;
+	background: white;
+	border-radius: 0 0 100px 100px;
+}
+.bloque-footer {
+	background: white;
+	border-radius: 30px 30px 0 0;
+}
+.bloque-footer-radius {
+	border-radius: 100px 100px 0 0 !important;
+}
+.form-group {
+	margin-bottom: 0.3rem;
+}
+.form-group.error .mensaje-error {
+	opacity: 1;
+}
+.mensaje-error {
+	opacity: 0;
+	color: #d44950;
+	font-size: 12px;
+	display: block;
+}
+.select-edit {
+	border: none;
+	padding: 0;
+	width: 50px; 
+}
+.hora {
+	text-align: center;
+	display: block;
+	border-radius: 5px;
+	padding: 5px 0;
+	margin-bottom: 20px;
+}
+.hora.hora-personalizada {
+	background: #C4FE02;
+	color: #0C284F;
+}
+.hora.hora-personalizada2 {
+	background: #2C4527;
+	color: white;
+}
+.hora.hora-neutro {
+	color: white;
+	background: #00963F;
+	margin-bottom: 0;
+}
+.hora.no-disponible {
+	background: #646464;
+	color: #AAAAAA;
+}
+.avatar {
+	width: 100%;
+	margin-bottom: 20px;
+	border-radius: 20px;
+}
+.avatar-perfil {
+	width: 150px;
+	border-radius: 20px;
+	margin-bottom: 20px;
+}
+.menu {
+	background: white;
+	height: 100%;
+	width: 80%;
+	position: absolute;
+	z-index: 2; 
+	transition: 500ms linear;
+	margin-left: -80%;
+}
+.menu.mostrar-menu {
+	display: block;
+	transition: 500ms linear;
+	margin-left: 0;
+	width: 80%;
+	box-shadow: 0 0px 200px #000000;
+}
+.menu .header {
+	background: #00963F;
+	padding: 40px;
+	color: white;
+}
+.menu .header img {
+	width: 100px;
+	border-radius: 20px;
+	margin-bottom: 20px;
+}
+.menu ul {
+	padding: 40px;
+}
+.menu ul li {
+	list-style: none;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+.menu ul li.cerrar {
+	position: absolute;
+    bottom: 40px;
+    margin-bottom: 0;
+}
+.menu ul li a {
+	color: #5E5E5E;
+}
+.menu ul li a img {
+	width: 25px;
+	margin-right: 10px;
+}
+.bg-login {
+	background-image: url(../img/bg-login.jpg);
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.bg-login a {
+	color: #00963F;
+}
+.bg-login .logoaceblub {
+	width: 200px;
+	margin-bottom: 20px;
+}
+.logo-blanco {
+	width: 250px;
+	margin-bottom: 135px; 
+}
+.bloque-home-menu {
+	background: rgb(117 117 117 / 43%);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 15px;
+	box-shadow: 0 4px 16px #00000057;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 16px;
+	padding: 25px 5px; 
+}
+.bloque-home-menu a {
+	color: white;
+}
+.bloque-home-menu a img {
+	width: 40px;
+	display: block;
+	margin: 0 auto 5px auto;
+}
+.calendario .semana {
+	padding: 15px 0;
+	opacity: 0.5;
+} 
+.calendario .mes {
+	padding: 15px 0;
+	font-weight: bold;
+} 
+.calendario .mes svg {
+	font-size: 30px;
+} 
+.calendario .dias a {
+	width: 100%;
+	padding: 5px 0;
+	display: block;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+.calendario .dias a.activo {
+	background: #00963F; 
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

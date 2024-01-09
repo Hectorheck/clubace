@@ -1,0 +1,276 @@
+@php
+$logotipo = $club->logo_url ? Storage::disk('public')->url($club->logo_url) : asset('img/clubes/logotipo.png');
+@endphp
+@section('title'){{ 'Arrendamiento' }}@endsection
+@extends('sistema.socios.layout')
+@section('content')
+@include('sistema.socios.menu')
+<header class="bg-anaranjado" style="background-color:{{ $club->color_2 }}!important">
+	<div class="degradado">
+		<div class="iconos-header">
+			<div class="row">
+				<div class="col">
+					<a href="{{ asset('/') }}">
+						<img class="iconos" src="{{ asset('recursos/img/iconos/volver.svg') }}">
+					</a>
+				</div>
+				<div class="col text-right">
+					{{-- <span class="notificacion">412</span> --}}
+					<a href="#">
+						<img class="iconos" src="{{ asset('recursos/img/iconos/notificacion.svg') }}">
+					</a>
+					<a onclick="showmenu()" href="#">
+						<img class="iconos icono-menu" src="{{ asset('recursos/img/iconos/menu.svg') }}">
+					</a>
+				</div>
+			</div>
+		</div>
+		<h1>Arriendo {{ $servicio->nombre }}</h1>
+	</div>
+</header>
+
+<div class="container mt-contenido">
+	<div class="row">
+		<div class="col-12 col-md-6 mb-25">
+			<a href="#">
+				<div class="row align-items-center">
+					<div class="col-10">
+						<div class="bloque-cuadro mb-0 pd-cuadro">
+							<div class="info-cuadro">
+								<img src="{{asset('recursos/img/iconos/ubicacion.svg')}}" alt="">
+								<h3>{{ $club->display_name }}</h3>
+								<p>{{ $club->direccion_calle }} {{ $club->direccion_numero }}, {{ $club->comunas->nombre }},{{-- La Reina, --}} {{ $club->comunas->regiones->codigo }}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-2">
+						<div class="bloque-cuadro logo-cuadro d-flex align-items-center ">
+							<img src="{{ $logotipo }}" alt="{{ $club->display_name }}">
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="mt-auto pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h4>Agendar Recinto</h4>
+			</div>
+		</div>
+	</div>
+	<div class="bloque-footer pd-cuadro box-cuadro pt-25">
+		<div class="container">
+			<form action="{{ route('arrendar', $servicio->id) }}" class="w-100" method="post">
+				@csrf
+				@method('PUT')
+				<div class="row">
+					<div class="col-12 col-sm-6">
+						<div class="form-group {{-- error --}}">
+							<!-- AGREGAR LA CLASE ERROR PARA MARCAR EL ERROR -->
+							<label for="">Seleccionar Recinto</label>
+							<select class="form-control" id="recintos_id" name="recintos_id">
+								@forelse($recintos as $recinto)
+								<option value="{{ $recinto->id }}">{{ $recinto->nombre }}</option>
+								@empty
+								<option disabled="">No tiene recintos aun cargados</option>
+								@endforelse
+							</select>
+							<small class="mensaje-error">Error al ingresar este campo</small>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6">
+						<div class="form-group">
+							<!-- AGREGAR LA CLASE ERROR PARA MARCAR EL ERROR -->
+							<label for="">Fecha</label>
+							<input type="date" class="form-control" id="fecha_select" value="{{ date('Y-m-d') }}">
+							<small class="mensaje-error">Error al ingresar este campo</small>
+						</div>
+					</div>
+					{{-- <div class="col-12">
+						<div class="form-group error">
+							<select class="form-control select-edit" id="">
+								<option>AM</option>
+								<option>PM</option>
+							</select>
+						</div>
+					</div> --}}
+					<div class="col-12">
+						<input type="hidden" readonly name="horario_selected" id="horario_selected">
+						<div class="row" id="bloques" style="display: none;">
+							{{-- <div class="row">
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">08:00</a>
+							</div>
+							<div class="col">
+								<a class="hora no-disponible" href="#">08:30</a>
+							</div>
+							<div class="col">
+								<a class="hora no-disponible" href="#">09:00</a>
+							</div>      
+						</div>
+						<div class="row">
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">09:30</a>
+							</div>
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">10:00</a>
+							</div>
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">10:30</a>
+							</div>      
+						</div>
+						<div class="row">
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">11:00</a>
+							</div>
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">11:30</a>
+							</div>
+							<div class="col">
+								<a class="hora hora-personalizada2" href="#">12:00</a>
+							</div>      
+						</div> --}}
+						</div>
+						<div class="row">
+							<div class="col">
+								<a href="#" data-toggle="modal" data-target="#modalPay" class="btn btn-success mb-25 mt-25">Continuar</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{-- MODAL --}}
+				<div class="modal fade bd-example-modal-lg" id="modalPay" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Metodo de pago</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							</div>
+							<div class="modal-body">
+								<p>Confirmar los datos del Arriendo en la Siguiente Pagina</p>
+
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Volver</button>
+								<button type="submit" class="btn btn-success">Siguiente</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{-- MODAL --}}
+			</form>
+		</div>
+	</div>
+</div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+
+<script type="text/javascript">
+	$(document).ready(function($) {
+		// $("#bloques").empty();
+		// let fecha = $("#fecha_select").val();
+		// let id = $("#recintos_id").val();
+		// console.log(id, fecha);
+		loadAgenda();
+	});
+	function loadAgenda () {
+		$("#bloques").empty();
+		let fecha = $("#fecha_select").val();
+		let id = $("#recintos_id").val();
+		$.ajax({
+			url: `/load/${id}/agenda/${fecha}`,
+			type: 'GET',
+		})
+		.done(function(response) {
+			// console.log(response);
+			$("#bloques").show();
+			$.each(response, function(index, val) {
+				// console.log(val);
+				$("#bloques").append(`
+					<div class="col-4">
+						<a class="hora ${(val.estado == 'Disponible') ? 'hora-personalizada' : 'no-disponible'} ${val.estado=='Reservado' ? 'desactivado' : ''}" 
+							id="hour_${val.id}" data-id="${val.id}" 
+							onclick="selecHora(${val.id})">
+								${val.hora_inicio_bloque} - ${val.hora_fin_bloque}
+						</a>
+					</div>
+				`);
+			});
+		})
+		.fail(function() {
+			// console.log("error");
+		})
+		.always(function() {
+			// console.log("complete");
+		});
+	};
+	$("#fecha_select").change(function(event) {
+		/* Act on the event */
+		// console.log($(this),$(this).val());
+		$("#bloques").empty();
+		let id = $("#recintos_id").val();
+		let cont = 0;
+		let uri = `/load/${id}/agenda/${$(this).val()}`;
+		console.log(uri);
+		$.ajax({
+				url: `${uri}`,
+				type: 'GET',
+			})
+			.done(function(response) {
+				console.log(response);
+				$("#bloques").show();
+				$.each(response, function(index, val) {
+					// console.log(val);
+					$("#bloques").append(`
+					<div class="col-4">
+						<a class="hora ${(val.estado == 'Disponible') ? 'hora-personalizada' : 'no-disponible'} ${val.estado=='Reservado' ? 'desactivado' : ''}" 
+							id="hour_${val.id}" data-id="${val.id}" 
+							onclick="selecHora(${val.id})">
+								${val.hora_inicio_bloque} - ${val.hora_fin_bloque}
+						</a>
+					</div>
+				`);
+				});
+			})
+			.fail(function() {
+				// console.log("error");
+			})
+			.always(function() {
+				// console.log("complete");
+			});
+	});
+
+	function selecHora(id) {
+		// console.log($(this));
+		let element = document.querySelector(`#hour_${id}`);
+		if ( $(`#hour_${id}`).hasClass('desactivado') ) {
+			return;
+		};
+		let current = $("#horario_selected").val();
+		if (id != current) {
+			$(`#hour_${current}`).removeClass('no-disponible');
+			$(`#hour_${current}`).addClass('hora-personalizada');
+		};
+		/* hora-personalizada SELECCIONAR NUEVO ########## */
+		$("#horario_selected").val(id);
+		// console.log(element.classList.contains("no-disponible"), element);
+		if ($(`#hour_${id}`).hasClass('no-disponible')) {
+			$(`#hour_${id}`).removeClass('no-disponible');
+			$(`#hour_${id}`).addClass('hora-personalizada');
+		} else {
+			$(`#hour_${id}`).removeClass('hora-personalizada');
+			$(`#hour_${id}`).addClass('no-disponible');
+		};
+		$("#terminos_div").show();
+	}
+</script>
+
+@endsection
